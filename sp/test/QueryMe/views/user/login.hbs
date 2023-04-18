@@ -1,0 +1,39 @@
+<div class="container my-2 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+            <div class="card text-black border border-1 border-dark-subtle rounded-2">
+                <div class="card-body p-md-5">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                            <p class="text-center h1 mb-5 mx-1 mx-md-4 mt-4">Login</p>
+
+                            <form class="mx-1 mx-md-4" action="/users" method="post" id="registrationForm">
+
+                                {{#each formItems}}
+                                    <div class="form-outline mb-2">
+                                        <div class="input-group align-items-center">
+                                            <span class="input-group-text border-0 bg-white"><i class="{{icon}} fs-3"></i></span>
+                                            <input class="form-control border border-dark-subtle rounded-2" type="{{input.type}}" id="{{input.id}}" name="{{input.name}}" placeholder="{{input.placeholder}}" required="required"/>
+                                            <label class="form-label" for="{{label.for}}"></label></div>
+                                        <p class="form-label px-2" id="feedback-message"></p>
+                                    </div>
+                                {{/each}}
+
+                                <div class="d-flex justify-content-end mt-4">
+                                    <button type="submit" class="btn btn-md border border-1 rounded-2 border-dark-subtle" id="register-btn">Login</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                            <img src="/images/login.webp" class="img-fluid" alt="Welcome!"/>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

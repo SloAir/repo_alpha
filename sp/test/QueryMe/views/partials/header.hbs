@@ -1,0 +1,62 @@
+<nav class="navbar sticky-top navbar-expand-xl navbar-light bg-white border-bottom">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <img src="/images/logo/logo-no-background.png" height="30" width="auto"/>
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+
+            <ul class="navbar-nav ms-auto mb-lg-0 justify-content-center">
+
+                <li class="nav-item">
+                    <a class="nav-link rounded-1" href="#">
+                        <span class="bi bi-patch-question"></span>
+                        Ask
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link rounded-1" href="#">
+                        <span class="bi bi-graph-up"></span>
+                        Trending
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <form class="d-flex">
+                        <input class="form-control me-1" id="search-bar" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn shadow-none border bg-white" id="search-btn" type="submit">
+                            <span class="bi bi-search"></span>
+                        </button>
+                    </form>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 justify-content-end">
+                {{#if user.sessionId}}
+
+                {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link rounded-1" href="/users/register">
+                            <span class="bi bi-person-plus"></span>
+                           Sign Up
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link rounded-1" href="/users/login">
+                            <span class="bi bi-box-arrow-in-right"></span>
+                            Login
+                        </a>
+                    </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>
