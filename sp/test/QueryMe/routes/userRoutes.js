@@ -89,7 +89,7 @@ router.post('/validate_login', function(req, res) {
             username: username
         }
 
-         res.redirect('login_success');
+        res.redirect('/');
 
     }).catch((err) => {
         console.error(err);
@@ -103,7 +103,7 @@ router.get('/logout', (req, res) => {
             console.error(err);
             res.status(500).send('Internal Server Error');
         } else {
-            res.redirect('logout_success');
+            res.redirect('/');
         }
     });
 });
