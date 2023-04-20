@@ -154,7 +154,7 @@ module.exports = {
 
     showLogoutSuccess: function(req, res) {
         res.render('user/logout_success', {
-            title: 'QueryMe'
+            title: 'QueryMe',
         });
     }
 };
