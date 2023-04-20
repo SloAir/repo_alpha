@@ -8,15 +8,18 @@
 
                             <p class="text-center h1 mb-5 mx-1 mx-md-4 mt-4">Login</p>
 
-                            <form class="mx-1 mx-md-4" action="/users" method="post" id="registrationForm">
+                            <form class="mx-1 mx-md-4" action="/users/validate_login" method="post" id="registrationForm">
 
                                 {{#each formItems}}
-                                    <div class="form-outline mb-2">
-                                        <div class="input-group align-items-center">
+                                    <div class="form-outline mb-1">
+                                        <div class="col input-group align-items-center">
                                             <span class="input-group-text border-0 bg-white"><i class="{{icon}} fs-3"></i></span>
-                                            <input class="form-control border border-dark-subtle rounded-2" type="{{input.type}}" id="{{input.id}}" name="{{input.name}}" placeholder="{{input.placeholder}}" required="required"/>
-                                            <label class="form-label" for="{{label.for}}"></label></div>
-                                        <p class="form-label px-2" id="feedback-message"></p>
+                                            <input class="form-control border border-dark-subtle rounded-2" type="{{input.type}}" id="{{input.id}}" name="{{input.name}}" placeholder="{{input.placeholder}}"  required="required"/>
+                                            <label class="form-label" for="{{label.for}}"></label>
+                                        </div>
+                                        <div class="text-end">
+                                            <p class="mb-1" id="{{feedbackId}}" style="font-size: 0.8rem">&zwnj;{{feedbackPlaceholder}}</p>
+                                        </div>
                                     </div>
                                 {{/each}}
 
@@ -37,3 +40,8 @@
         </div>
     </div>
 </div>
+
+<script src="/js/validateLogin.js"></script>
+<script>
+    validateLogin();
+</script>

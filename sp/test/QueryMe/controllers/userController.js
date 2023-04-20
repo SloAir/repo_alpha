@@ -61,8 +61,6 @@ module.exports = {
             }
         });
 
-        
-
         user.save()
             .then(user => {
                 return res.redirect('/users/register_success');
@@ -137,14 +135,26 @@ module.exports = {
 
     showRegisterSuccess: function(req, res) {
         res.render('user/register_success', {
-            title: 'Registration success'
-        })
+            title: 'QueryMe'
+        });
     },
 
     showLogin: function(req, res) {
         res.render('user/login', {
             title: 'Login',
             formItems: data.loginFormItems
-        })
+        });
+    },
+
+    showLoginSuccess: function(req, res) {
+        res.render('user/login_success', {
+            title: 'QueryMe'
+        });
+    },
+
+    showLogoutSuccess: function(req, res) {
+        res.render('user/logout_success', {
+            title: 'QueryMe'
+        });
     }
 };

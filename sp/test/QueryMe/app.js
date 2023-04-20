@@ -1,5 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const hbs = require('hbs');
 const cookieParser = require('cookie-parser');
@@ -36,6 +37,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// TODO: create a config file
+app.use(session({
+  secret: "mySecretKey",
+  resave: false,
+  saveUninitialized: false
+}))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

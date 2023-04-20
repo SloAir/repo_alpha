@@ -2,22 +2,36 @@ function validateUsernameInput(username) {
     const regex = new RegExp(/^[a-zA-Z0-9-_]{3,32}$/);
 
     if(username === "") {
-        return "";
+        return [false, "&zwnj;"];
     }
 
     if(username.length < 3) {
-        return "Username should be at least 3 characters long.";
+        return [false, "Username should be at least 3 characters long."];
     }
 
     if(username.length > 32) {
-        return "Username should not be longer than 32 characters.";
+        return [false, "Username should not be longer than 32 characters."];
     }
 
     if(!regex.test(username)) {
-        return "Username should not contain special symbols.";
+        return [false, "Username should not contain special symbols."];
     }
 
-    return true;
+    return [true, "&zwnj;"];
+}
+
+function validateEmailInput(email) {
+    const regex = new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
+
+    if(email === "") {
+        return [false, "&zwnj;"];
+    }
+
+    if(!regex.test(email)) {
+        return [false, "Invalid email input."];
+    }
+
+    return [true, "&zwnj;"];
 }
 
 function validateUsername() {
@@ -34,24 +48,20 @@ function validateUsername() {
             url: '/users/validate_username',
             data: { username: username },
             success: (res) => {
-                if(validateUsernameInput(username) === true) {
-                    if(res.exists) {
-                        feedbackMessage.innerHTML = "Username already taken.";
-                        feedbackMessage.classList.add('text-danger');
-                    }
-                    else {
+                const [status, msg] = validateUsernameInput(username);
+                if(status === true) {
+                    if(!res.exists) {
                         feedbackMessage.innerHTML = "Username is available.";
                         feedbackMessage.classList.add('text-success');
                     }
-                }
-                else {
-                    if(username !== "") {
-                        feedbackMessage.innerHTML = validateUsernameInput(username);
+                    else {
+                        feedbackMessage.innerHTML = "Username already taken.";
                         feedbackMessage.classList.add('text-danger');
                     }
-                    else {
-                        feedbackMessage.innerHTML = "&zwnj;";
-                    }
+                }
+                else {
+                    feedbackMessage.innerHTML = msg;
+                    feedbackMessage.classList.add('text-danger');
                 }
             }
         });
@@ -72,13 +82,20 @@ function validateEmail() {
             url: '/users/validate_email',
             data: { email: email },
             success: (res) => {
-                if(res.exists) {
-                    feedbackMessage.innerHTML = 'Email already exists.';
-                    feedbackMessage.classList.add('text-danger');
+                const [status, msg] = validateEmailInput(email);
+                if(status === true) {
+                    if(!res.exists) {
+                        feedbackMessage.innerHTML = 'Email is available.';
+                        feedbackMessage.classList.add('text-success');
+                    }
+                    else {
+                        feedbackMessage.innerHTML = 'Email already exists.';
+                        feedbackMessage.classList.add('text-danger');
+                    }
                 }
                 else {
-                    feedbackMessage.innerHTML = 'Email is available.';
-                    feedbackMessage.classList.add('text-success');
+                    feedbackMessage.innerHTML = msg;
+                    feedbackMessage.classList.add('text-danger');
                 }
             }
         });
@@ -121,6 +138,9 @@ function validatePassword() {
                 feedbackMessage.innerHTML = validatePasswordInput(password);
                 feedbackMessage.classList.add('text-danger');
             }
+            else {
+                feedbackMessage.innerHTML = "&zwnj;";
+            }
         }
     });
 
@@ -135,8 +155,13 @@ function validatePassword() {
             feedbackMessage.innerHTML = "&zwnj;";
         }
         else {
-            feedbackMessage.innerHTML = "Passwords do not match.";
-            feedbackMessage.classList.add('text-danger');
+            if(repeatPassword === "") {
+                feedbackMessage.innerHTML = "&zwnj;";
+            }
+            else {
+                feedbackMessage.innerHTML = "Passwords do not match.";
+                feedbackMessage.classList.add('text-danger');
+            }
         }
     });
 }
@@ -164,7 +189,6 @@ function validateRegistrationForm() {
     const repeatedPassword = document.getElementById('repeat-password');
 
     registrationForm.addEventListener('input', () => {
-        event.preventDefault();
         if(validateUsernameInput(username.value) && validatePasswordInput(password.value) && passwordsMatch(password.value, repeatedPassword.value)) {
             registerButton.disabled = false;
         }

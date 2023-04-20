@@ -76,7 +76,9 @@ module.exports = {
             },
             label: {
                 for: 'username'
-            }
+            },
+            feedbackId: 'username-feedback',
+            feedbackPlaceholder: ''
         },
 
         // password
@@ -90,7 +92,9 @@ module.exports = {
             },
             label: {
                 for: 'password'
-            }
+            },
+            feedbackId: 'password-feedback',
+            feedbackPlaceholder: ''
         },
     ]
 }
