@@ -1,3 +1,6 @@
 sa/config.json
 sp/test/QueryMe/\.idea/
 sp/test/QueryMe/node_modules/
+sp/test/REST_DockerTEST/.env
+sp/test/REST_DockerTEST/node_modules
+sp/test/REST_DockerTEST/images
