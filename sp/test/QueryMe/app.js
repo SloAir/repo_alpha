@@ -17,7 +17,7 @@ const answerRouter = require('./routes/answerRoutes');
 
 // DB connection
 const mongoose = require('mongoose');
-const mongoDB = process.env.MONGODB_MYQUERY_URI;
+const mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
