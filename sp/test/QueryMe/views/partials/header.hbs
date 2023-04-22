@@ -14,15 +14,17 @@
 
             <ul class="navbar-nav ms-auto mb-lg-0 justify-content-center">
 
+                <!-- TODO: foreach through a JSON array for nav items -->
+
                 <li class="nav-item">
-                    <a class="nav-link rounded-1" href="#">
+                    <a class="nav-link" href="#">
                         <span class="bi bi-patch-question"></span>
                         Ask
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link rounded-1" href="#">
+                    <a class="nav-link" href="#">
                         <span class="bi bi-graph-up"></span>
                         Trending
                     </a>
@@ -39,16 +41,23 @@
             </ul>
 
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 justify-content-end">
-                {{#if session.user }}
+                {{#if session.user}}
                     <li class="nav-item">
-                        <a class="nav-link rounded-1" href="/users/logout">
+                        <a class="nav-link" href="/users/profile">
+                            <span class="bi bi-person"></span>
+                            Profile
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/logout">
                             <span class="bi bi-box-arrow-right"></span>
                             Logout
                         </a>
                     </li>
                 {{else}}
                     <li class="nav-item">
-                        <a class="nav-link rounded-1" href="/users/register">
+                        <a class="nav-link" href="/users/register">
                             <span class="bi bi-person-plus"></span>
                            Sign Up
                         </a>

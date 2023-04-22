@@ -1,8 +1,23 @@
-<div class="row justify-content-center">
-    <div class="container categories m-2 justify-content-end">
-        Categories
-    </div>
-    <div class="container main m-2 justify-content-center">
-        <!-- each post/question will have a question -->
+<div class="d-flex justify-content-center">
+    <div class="row justify-content-center" style="width: 80% !important;">
+        <div class="container col-sm-12 col-md-12 col-lg-2 col-xl-2 border border-dark-subtle m-2 justify-content-end bg-white">
+            <ul class="navbar-nav justify-content-start">
+
+                {{#each spaces}}
+
+                <li class="nav-item space-link">
+                    <a class="nav-link" href="{{this.link}}">
+                        <span class="{{this.icon}}"></span>
+                        {{this.title}}
+                    </a>
+                </li>
+
+                {{/each}}
+            </ul>
+        </div>
+        <!-- TODO: foreach -->
+        <div class="container col-sm-12 col-md-12 col-lg-9 col-xl-9 border border-dark-subtle my-2 mx-auto justify-content-end bg-white">
+            Queries
+        </div>
     </div>
 </div>

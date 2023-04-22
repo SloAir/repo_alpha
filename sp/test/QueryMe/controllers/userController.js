@@ -146,15 +146,9 @@ module.exports = {
         });
     },
 
-    showLoginSuccess: function(req, res) {
-        res.render('user/login_success', {
-            title: 'QueryMe'
-        });
-    },
-
-    showLogoutSuccess: function(req, res) {
-        res.render('user/logout_success', {
-            title: 'QueryMe',
+    showProfile: function(req, res) {
+        res.render('user/profile', {
+            title: 'My profile'
         });
     }
 };
