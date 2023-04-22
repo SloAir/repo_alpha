@@ -2,6 +2,24 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const Schema   = mongoose.Schema;
 
+class User {
+	#username;
+	// #password;
+	#email;
+	#profilePicture;
+	#queries;
+	#aura;
+
+	constructor(username, email, profilePicture, queries, aura) {
+		this.#username = username;
+		this.#email = email;
+		// this.#profilePicture = profilePicture;
+		this.#profilePicture = "/images/profile_pictures/default.jpg";
+		this.#queries = queries;
+		this.#aura = aura;
+	}
+}
+
 const userSchema = new Schema({
 	'username': {
 		type: String,

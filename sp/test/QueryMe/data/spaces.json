@@ -1,0 +1,67 @@
+[
+  {
+    "title": "Cooking",
+    "link": "#",
+    "icon": "bi bi-egg-fried"
+  },
+  {
+    "title": "Health",
+    "link": "#",
+    "icon": "bi bi-heart-pulse"
+  },
+  {
+    "title": "Sport",
+    "link": "#",
+    "icon": "bi bi-bicycle"
+  },
+  {
+    "title": "Technology",
+    "link": "#",
+    "icon": "bi bi-cpu"
+  },
+  {
+    "title": "Science",
+    "link": "#",
+    "icon": "bi bi-rocket-takeoff"
+  },
+  {
+    "title": "Movies",
+    "link": "#",
+    "icon": "bi bi-tv"
+  },
+  {
+    "title": "Art",
+    "link": "#",
+    "icon": "bi bi-palette"
+  },
+  {
+    "title": "Music",
+    "link": "#",
+    "icon": "bi bi-music-note-list"
+  },
+  {
+    "title": "Literature",
+    "link": "#",
+    "icon": "bi bi-book"
+  },
+  {
+    "title": "History",
+    "link": "#",
+    "icon": "bi bi-bank"
+  },
+  {
+    "title": "Geography",
+    "link": "#",
+    "icon": "bi bi-globe-europe-africa"
+  },
+  {
+    "title": "Finance",
+    "link": "#",
+    "icon": "bi bi-cash-stack"
+  },
+  {
+    "title": "Crypto",
+    "link": "#",
+    "icon": "bi bi-currency-bitcoin"
+  }
+]

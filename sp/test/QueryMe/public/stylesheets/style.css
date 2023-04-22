@@ -65,9 +65,15 @@ a {
 }
 
 .main {
-  width: 35% !important;
+  width: 45% !important;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 
-.categories {
-  width: 10% !important;
+.space-link {
+  font-size: .85rem;
+}
+
+.navbar-nav > .space-link > .nav-link {
+  padding: 5px 2px;
 }

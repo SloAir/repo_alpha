@@ -12,12 +12,12 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/userRoutes');
 const addressRouter = require('./routes/addressRoutes');
 const queryRouter = require('./routes/queryRoutes');
+const spacesRouter = require('./routes/spaceRoutes');
 const answerRouter = require('./routes/answerRoutes');
 
 // DB connection
 const mongoose = require('mongoose');
-const dbName = 'QueryMe';
-const mongoDB = 'mongodb://127.0.0.1/' + dbName;
+const mongoDB = process.env.MONGODB_MYQUERY_URI;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
@@ -39,14 +39,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // TODO: create a config file
-app.use(session({
-  secret: "mySecretKey",
-  resave: false,
-  saveUninitialized: false
-}))
+  app.use(session({
+    secret: process.env.SESSION_KEY,
+    resave: false,
+    saveUninitialized: false
+    })
+  );
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/spaces', spacesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

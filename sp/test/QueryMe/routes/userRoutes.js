@@ -7,14 +7,18 @@ const userController = require('../controllers/userController.js');
 // get id
 // router.get('/:id', userController.show);
 // router.get('/', userController.list);
+
 // route to correct registration pages
 router.get('/register', userController.showRegister);
 router.get('/register_success', userController.showRegisterSuccess);
-router.get('/login', userController.showLogin);
-router.get('/login_success', userController.showLoginSuccess);
-router.get('/logout_success', userController.showLogoutSuccess);
 
-// handle client-side validation
+// login route
+router.get('/login', userController.showLogin);
+
+// route for showing a user's profile
+router.get('/profile', userController.showProfile);
+
+// username AJAX validation
 router.post('/validate_username', function(req, res) {
     const username  = req.body.username;
 
@@ -33,6 +37,7 @@ router.post('/validate_username', function(req, res) {
     });
 });
 
+// email AJAX validation
 router.post('/validate_email', function(req, res) {
     const email = req.body.email;
 
@@ -43,24 +48,6 @@ router.post('/validate_email', function(req, res) {
          else {
              res.json({ exists: false });
          }
-    }).catch((err) => {
-        console.error(err);
-        res.status(500).send('Internal Server Error');
-    });
-});
-
-router.post('/check_username', function(req, res) {
-    const username  = req.body.username;
-
-    UserModel.findOne({ username: username }).then((user) => {
-        if(user) {
-            // The username already exists in the database
-            res.json({ exists: true });
-        }
-        else {
-            // The username is available
-            res.json({ exists: false });
-        }
     }).catch((err) => {
         console.error(err);
         res.status(500).send('Internal Server Error');
@@ -99,10 +86,11 @@ router.post('/validate_login', function(req, res) {
 
 router.get('/logout', (req, res) => {
     req.session.destroy(err => {
-        if (err) {
+        if(err) {
             console.error(err);
             res.status(500).send('Internal Server Error');
-        } else {
+        }
+        else {
             res.redirect('/');
         }
     });

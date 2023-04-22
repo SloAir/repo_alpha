@@ -7,7 +7,7 @@ function usernameExists(username) {
 
         $.ajax({
             type: 'POST',
-            url: '/users/check_username',
+            url: '/users/validate_username',
             data: { username: username },
             success: (res) => {
                 console.log(username);
