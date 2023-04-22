@@ -1,0 +1,125 @@
+    1  ls
+    2  touch test.txt
+    3  ls
+    4  ls | wc
+    5  wc --help
+    6  clear
+    7  cls
+    8  clear
+    9  git --version
+   10  ls
+   11  exit
+   12  ls
+   13  cd snap
+   14  ls
+   15  cd ..
+   16  cd repo_alpha/sp/
+   17  exit
+   18  ls
+   19  ls -l
+   20  wc
+   21  sudo
+   22  echo hello
+   23  sudo
+   24  echo hello
+   25  ls
+   26  ls -l
+   27  echo hi
+   28  ls
+   29  git version
+   30  docker version
+   31  ls
+   32  cd repo_alpha/
+   33  ls
+   34  lss
+   35  ls
+   36  l
+   37  sl
+   38  ls
+   39  ls -l
+   40  ..
+   41  cd..
+   42  cd
+   43  ls
+   44  ls -l
+   45  ls
+   46  cd repo_alpha/
+   47  ls
+   48  ls -l
+   49  cd
+   50  docker version
+   51  docker
+   52  docker verison
+   53  docker --help
+   54  logout
+   55  ls
+   56  cd repo_alpha/
+   57  git pull origin master
+   58  ls
+   59  cd sp
+   60  ls
+   61  cd test
+   62  ls
+   63  cd REST_DockerTEST/
+   64  ls
+   65  docker compose version
+   66  docker-compose build
+   67  cd repo_alpha/
+   68  cd
+   69  cd repo_alpha/
+   70  git pull origin master
+   71* 
+   72  docker-compose build
+   73  CD
+   74  cd
+   75  docker update
+   76  docker update --help
+   77  sudo usermod -aG docker sloair_admin
+   78  sudo apt-get install python3
+   79  lsb_release -a
+   80  sudo apt-get update 
+   81  sudo apt-get upgrade
+   82  sudo do-release-upgrade 
+   83  lsb_release -a
+   84  docker compose version
+   85  docker version
+   86  sudo groupadd docker
+   87  getnet group docker
+   88  getent group docker
+   89  sudo usermod -aG docker sloair_admin 
+   90  getent group docker
+   91  logout
+   92  do-release-upgrade 
+   93* 
+   94  cd repo_alpha/
+   95  cd sp
+   96  cd test/REST_DockerTEST/
+   97  docker-compose build
+   98  docker-compose up -d
+   99* 
+  100  cd repo_alpha/
+  101  git pull origin master
+  102  cd sp/test/REST_DockerTEST/
+  103  docker ps
+  104  docker stop rest_dockertest_app_1 
+  105  docker ps
+  106  docker images
+  107  docker image remove e0c94cc373f2
+  108  docker containers
+  109  docker rm cb1a3177443c
+  110  docker image remove e0c94cc373f2
+  111  docker images
+  112  docker ps
+  113  docker container ls
+  114  docker-compose build
+  115* 
+  116  docker-compose log rest_dockertest_app_1
+  117  docker ps
+  118  docker log rest_dockertest_app_1
+  119  docker logs rest_dockertest_app_1
+  120  docker stop rest_dockertest_app_1 
+  121  docker start rest_dockertest_app_1 
+  122  docker logs rest_dockertest_app_1
+  123  cd
+  124  history
+  125  history > repo_alpha/sa/cmd_history.txt
