@@ -6,6 +6,7 @@ const hbs = require('hbs');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
+require('dotenv').config();
 
 // routers
 const indexRouter = require('./routes/index');
