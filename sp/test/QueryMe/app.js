@@ -18,8 +18,7 @@ const answerRouter = require('./routes/answerRoutes');
 
 // DB connection
 const mongoose = require('mongoose');
-const mongoDB = process.env.MONGODB_URI;
-mongoose.connect(mongoDB, { useNewURLParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewURLParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
