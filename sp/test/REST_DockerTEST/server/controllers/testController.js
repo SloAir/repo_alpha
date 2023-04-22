@@ -33,7 +33,7 @@ exports.listEntries = async(req, res) => {
 */
 exports.insertSingleEntry = async(req, res) => {
 
-  const newEntry = new Test({
+  const newEntry = new Entry({
     name: req.body.name,
     description: req.body.description,
     thumbnail: req.body.thumbnail 
