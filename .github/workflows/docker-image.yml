@@ -17,7 +17,7 @@ jobs:
           
         - name: Build the Docker image
           run: docker build . --file sp/test/QueryMe/Dockerfile --tag sloair/sa_p2:alpha
-        - uses: sloair/docker-build-push@v6
+        - uses: mr-smithers-excellent/docker-build-push@v6
           name: Build & push Docker image
           with:
             image: sloair/sa_p2
