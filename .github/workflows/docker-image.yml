@@ -19,4 +19,4 @@ jobs:
           run: ls
           
         - name: Build the Docker image
-          run: docker build . --file sp/test/QueryMe --tag sloair/sa_p2:alpha
+          run: docker build . --file sp/test/QueryMe/Dockerfile --tag sloair/sa_p2:alpha
