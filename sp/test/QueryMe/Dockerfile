@@ -2,7 +2,7 @@ FROM node:latest
 
 WORKDIR /app
 
-COPY ./package.json /app
+COPY sp/test/QueryMe/package.json /app
 
 RUN npm install
 
