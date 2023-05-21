@@ -6,6 +6,7 @@ const hbs = require('hbs');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
+require('dotenv').config();
 
 // routers
 const indexRouter = require('./routes/index');
@@ -17,8 +18,7 @@ const answerRouter = require('./routes/answerRoutes');
 
 // DB connection
 const mongoose = require('mongoose');
-const mongoDB = process.env.MONGODB_MYQUERY_URI;
-mongoose.connect(mongoDB);
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
