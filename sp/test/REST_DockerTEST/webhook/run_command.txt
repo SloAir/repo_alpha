@@ -1,0 +1,35 @@
+docker run -d -p 9000:9000 --name=webhook \
+  -v /home/ephrat/Documents/Projektni Praktikum/repo_alpha/sp/test/REST_DockerTEST:/config:ro \
+  -v /home/ephrat/Documents/Projektni Praktikum:/opt/git \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  almir/webhook -ip 51.145.234.190 -verbose -hooks=/config/hooks.json -hotreload
+
+
+
+
+  webhook:
+    image: thecatlady/webhook
+    container_name: webhook
+    command: -verbose -hooks=hooks.json -hotreload
+    volumes: 
+      - /home/ephrat/Documents/Projektni Praktikum/repo_alpha/sp/test/REST_DockerTEST:/config:ro
+      - /home/ephrat/Documents/Projektni Praktikum:/opt/git
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports: 
+      - 9000:9000
+    restart: always
+
+
+RUN  apk --update --upgrade add docker curl bash python && \
+     curl -L -o /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py && \
+     python /tmp/get-pip.py && \
+     pip install docker-compose && \
+     rm -f /tmp/get-pip.py && \
+     rm -rf /var/cache/apk/*
+
+COPY --from=library/docker:latest /usr/local/bin/docker /usr/bin/docker
+COPY --from=docker/compose:latest /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+
+DELUJOČA:
+docker run -d -p 9000:9000 --name=webhookDELAJ   -v /home/ephrat/Documents/Projektni\ Praktikum/repo_alpha/sp/test/REST_DockerTEST:/config:ro   -v /home/ephrat/Documents/Projektni\ Praktikum:/opt/git   -v /var/run/docker.sock:/var/run/docker.sock   -e DOCKER_HOST=unix:///var/run/docker.sock my-webhook

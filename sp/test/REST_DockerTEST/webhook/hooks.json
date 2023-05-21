@@ -1,0 +1,7 @@
+[
+    {
+        "id":"test-hook",
+        "execute-command":"/config/run/test_script.sh",
+        "command-working-directory":"/opt/git/repo_alpha/sp/test/REST_DockerTEST"
+    }
+]
